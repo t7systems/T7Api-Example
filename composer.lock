@@ -1,0 +1,48 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "77b20c9eda160a43ed8e4d1511f1a801",
+    "content-hash": "e818b7e721882eafa5d8e88c5fabc177",
+    "packages": [
+        {
+            "name": "t7systems/t7lc-api",
+            "version": "0.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://git.dirtyherri.de/T7/T7Api.git",
+                "reference": "f39d11fc70031112ceb0dca7d65bb5db01ed7c28"
+            },
+            "require": {
+                "php": "^5.5.28"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "T7LC\\": "src/T7LC"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Jan",
+                    "email": "jan@777live.com"
+                }
+            ],
+            "description": "T7LC SOAP API Client",
+            "time": "2016-08-23 13:43:27"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

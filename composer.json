@@ -1,0 +1,11 @@
+{
+    "repositories": [
+        {
+            "url": "https://git.dirtyherri.de/T7/T7Api.git",
+            "type": "git"
+        }
+    ],
+    "require": {
+        "t7systems/t7lc-api": "~0.0.10"
+    }
+}
