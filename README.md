@@ -13,8 +13,12 @@ The following section assumes, that Composer is installed globally:
 * ```cd public```
 * ```php -S localhost:3333```
 
-Open localhost:3333 in your browser. You should see instructions on how to proceed.
+Copy ```config/custom.php.dist``` to ```config/custom.php```.
 
-> If you don't see anything, make sure ```display_errors``` is active: ```ini_set( "display_errors", true);```
+Open ```config/custom.php``` with your favourite editor and enter valid values for ```reqId``` and ```secretKey```.
 
-> Keep in mind to disable 'display_errors' on production environments!
+> For questions regarding ```reqId``` and ```secretKey```, please contact your account manager at 777
+
+Open localhost:3333 in your browser.
+
+Profit!
