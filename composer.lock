@@ -13,7 +13,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.dirtyherri.de/T7/T7Api.git",
-                "reference": "64ca65d40b754ae1c4e5c2df9a25ca3a6d89bd07"
+                "reference": "fbcda2cc3c2d62ebe77358fd1cc22a6a48b25e72"
             },
             "require": {
                 "php": "^5.5.28"
@@ -34,7 +34,7 @@
                 }
             ],
             "description": "T7LC SOAP API Client",
-            "time": "2016-08-24 08:28:29"
+            "time": "2016-08-24 09:00:43"
         }
     ],
     "packages-dev": [],

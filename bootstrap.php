@@ -42,7 +42,8 @@ $app['soap'] = function () use ($app) {
  * Optionally, add a CacheInterface instance depending on your needs, or let ClientServiceProvider create a default Cache
  */
 //$app['cache']     = new FileCache();
-//$app['cache']     = new RedisCache();
+//$app['cache']     = new \T7LC\Soap\Cache\RedisCache($app['cfg']['cache']);
+
 
 
 /**
