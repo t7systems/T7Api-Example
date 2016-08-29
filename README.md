@@ -7,7 +7,7 @@ https://getcomposer.org/
 
 The following section assumes, that Composer is installed globally:
 
-* ```git clone https://git.dirtyherri.de/T7/T7Api.git```
+* ```git clone https://git.dirtyherri.de/T7/T7Api-Example.git```
 * ```cd T7Api-Example```
 * ```composer install```
 * ```cd public```
