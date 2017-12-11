@@ -1,7 +1,7 @@
 {
     "repositories": [
         {
-            "url": "https://git.dirtyherri.de/T7/T7Api.git",
+            "url": "https://github.com/t7systems/T7Api.git",
             "type": "git"
         }
     ],
