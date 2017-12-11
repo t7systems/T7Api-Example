@@ -2,18 +2,6 @@
 
 ## Getting Started
 
-### Download ZIP file
-
-You may download example.zip from the following URL.
-
-Since this file may be outdated, you should proceed with 'Install with Git and Composer'
-
-https://git.dirtyherri.de/T7/T7Api-Example/wikis/home
-
-Extract the file and ```cd``` into the destination folder.
-
-Proceed with 'Finish Installation'
-
 ### Install with Git and Composer
 
 If you have not yet installed Composer, you should do so now:
