@@ -2,7 +2,7 @@ html, body {
     height: 100%;
 }
 body {
-    padding-top: 75px;
+    padding-top: 0;
 }
 .cambox {
     padding: 0;

@@ -10,7 +10,7 @@
     <link href="css/main.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -25,7 +25,7 @@
           <ul class="nav navbar-nav">
             <?php if (isset($category)): ?>
               <li <?php if ($category == null): ?>class="active"<?php endif; ?>>
-                <a title="<?php echo $cat->catDescription ?>" href="<?php echo $_SERVER['PHP_SELF'] ?>">
+                <a href="<?php echo $_SERVER['PHP_SELF'] ?>">
                   All <?php if ($category == null): ?><span class="sr-only">(current)</span><?php endif; ?>
                 </a>
               </li>
