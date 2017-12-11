@@ -10,7 +10,7 @@ if (ini_get( "display_errors")) {
 }
 
 if (!is_file('../config/custom.php')) {
-    throw new RuntimeException('Please follow instructions inside '.realpath(__DIR__.'/../config/custom.php.dist').'!', 7770);
+    throw new RuntimeException('Please follow instructions inside '.realpath(__DIR__.'/config/custom.php.dist').'!', 7770);
 }
 
 require __DIR__ . '/Application.php';
@@ -24,6 +24,13 @@ $app = new Application();
  */
 $app['cfg']  = require '../config/common.php';
 $app['cfg'] = array_replace_recursive($app['cfg'], require '../config/custom.php');
+
+if (!isset($app['cfg']['reqId'])) {
+    throw new RuntimeException('reqId missing in '.realpath(__DIR__.'/config/custom.php').'!', 7773);
+}
+if (!isset($app['cfg']['secretKey'])) {
+    throw new RuntimeException('secretKey missing in '.realpath(__DIR__.'/config/custom.php').'!', 7773);
+}
 
 /**
  * Optionally, create your own SoapClient instance and provide a custom URL, if you need to do so

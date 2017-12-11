@@ -9,7 +9,7 @@
     <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -26,8 +26,8 @@
         <h1>Oops...</h1>
         <h3>There seems to be a problem. Check out the message below:</h3>
 
-        <?php if ($ex instanceof SoapFault): ?>
-            <?php if ($ex->faultcode == 'ErrorCode #1001'): ?>
+        <?php if ($ex instanceof SoapFault || $ex->getCode() == 7773): ?>
+            <?php if ($ex->getCode() == 7773 || $ex->faultcode == 'ErrorCode #1001' || $ex->faultcode == 'ErrorCode #1002'): ?>
                 <p>
                     Please check <samp>reqId</samp> and <samp>secretKey</samp> inside <code><?php echo realpath(__DIR__ . '/../config/custom.php') ?></code>
                 </p>
