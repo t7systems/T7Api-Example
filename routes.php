@@ -211,9 +211,9 @@ return function(Application $app) {
         require __DIR__ . '/views/index.php';
     };
 
-    if (isset($$app['route']) && get_class($$app['route']) == 'Closure') {
+    if (isset(${$app['route']}) && get_class(${$app['route']}) == 'Closure') {
         //execute closure matching the route
-        $$app['route']();
+        ${$app['route']}();
     } else {
         echo '404';
     }
