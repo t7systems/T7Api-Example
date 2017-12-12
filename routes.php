@@ -33,7 +33,7 @@ return function(Application $app) {
     };
 
     $cams = function() use ($app) {
-        $categories = $app->client()->getCategories($app['lang']);
+        $categories = $app->client()->getAllCategories($app['lang']);
         $category   = 0;
         if (isset($_GET['cat'])) {
             $category = $_GET['cat'];

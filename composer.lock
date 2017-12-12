@@ -4,16 +4,16 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ae40feba70924d91bf01a79278dfc7b6",
-    "content-hash": "55f2869cee1b11291740be28366535b0",
+    "hash": "f9b9b770856afed5ed0d7f47b1d4547d",
+    "content-hash": "8521723ed1d3a5fa1736d2e1b8dc9a9f",
     "packages": [
         {
             "name": "t7systems/t7lc-api",
-            "version": "0.0.14",
+            "version": "0.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/t7systems/T7Api.git",
-                "reference": "c80c503bfb60893731327fd1caf489facc4794c3"
+                "reference": "ff6dad5cdbf8ba3f90143d127294e7dd73bc213f"
             },
             "require": {
                 "php": ">=5.5.28"
@@ -34,7 +34,7 @@
                 }
             ],
             "description": "T7LC SOAP API Client",
-            "time": "2017-12-11 16:32:58"
+            "time": "2017-12-12 13:35:12"
         }
     ],
     "packages-dev": [],
