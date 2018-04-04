@@ -1,5 +1,3 @@
-<button id="exit-button" class="btn btn-danger" onclick="chatExit();">EXIT</button>
-
 <iframe id="chatframe" name="chatframe" src="<?php echo $chatUrl ?>" allowfullscreen></iframe>
 
 <script>

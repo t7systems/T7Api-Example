@@ -38,6 +38,11 @@
               <?php endforeach; ?>
             <?php endif; ?>
           </ul>
+          <?php if ($app['route'] == 'chat') : ?>
+            <div class="navbar-form navbar-right">
+              <button id="exit-button" class="btn btn-danger" onclick="chatExit();">EXIT CHAT</button>
+            </div>
+          <?php endif; ?>
           <form method="post" class="navbar-form navbar-right">
             <input type="hidden" name="redirect" value="<?php echo $_SERVER['REQUEST_URI'] ?>" />
             <select class="form-control" name="lang" onchange="this.form.submit()">
@@ -45,13 +50,15 @@
               <option value="en" <?php if ($app['lang'] == 'en'): ?>selected="selected"<?php endif; ?>>EN</option>
             </select>
           </form>
-          <form method="post" class="navbar-form navbar-right">
-            <input type="hidden" name="redirect" value="<?php echo $_SERVER['REQUEST_URI'] ?>" />
-            <select class="form-control" name="livesnap" onchange="this.form.submit()">
-              <option value="0" <?php if ($app['livesnap'] == '0'): ?>selected="selected"<?php endif; ?>>Preview Pics</option>
-              <option value="1" <?php if ($app['livesnap'] == '1'): ?>selected="selected"<?php endif; ?>>Live Snapshots</option>
-            </select>
-          </form>
+          <?php if ($app['route'] != 'chat') : ?>
+            <form method="post" class="navbar-form navbar-right">
+              <input type="hidden" name="redirect" value="<?php echo $_SERVER['REQUEST_URI'] ?>" />
+              <select class="form-control" name="livesnap" onchange="this.form.submit()">
+                <option value="0" <?php if ($app['livesnap'] == '0'): ?>selected="selected"<?php endif; ?>>Preview Pics</option>
+                <option value="1" <?php if ($app['livesnap'] == '1'): ?>selected="selected"<?php endif; ?>>Live Snapshots</option>
+              </select>
+            </form>
+          <?php endif; ?>
         </div>
       </div>
     </nav>

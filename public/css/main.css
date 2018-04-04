@@ -34,12 +34,6 @@ body {
     width: 100%;
     max-width:100%;
 }
-#exit-button {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    z-index: 10001;
-}
 #chatframe {
     border: none;
     height: 100%;
