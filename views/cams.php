@@ -7,7 +7,11 @@
                     <?php if ($app['livesnap'] == 1): ?>
                         <img src="<?php echo $livePreviews[$cam->camID] ?>" />
                     <?php else: ?>
-                        <img src="<?php echo $cam->prevPicURLs[2] ?>" alt="<?php echo $cam->camName ?>" title="<?php echo $cam->camName ?>">
+                        <?php if ($cam->previewFsk16): ?>
+                            <img src="<?php echo $cam->prevPicURLs[2] ?>" alt="<?php echo $cam->camName ?>" title="<?php echo $cam->camName ?>">
+                        <?php else: ?>
+                            <img src="<?php echo $cam->blurredPrevPicURLs[2] ?>" alt="<?php echo $cam->camName ?>" title="<?php echo $cam->camName ?>">
+                        <?php endif; ?>
                     <?php endif; ?>
                 </a>
             </div>

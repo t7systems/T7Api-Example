@@ -203,11 +203,14 @@ return function(Application $app) {
     };
 
     $sedcard = function() use ($app) {
-        $sedcard = $app->client()->getSedcard($_GET['sedcard'], $app['lang']);
+        $sedcard     = $app->client()->getSedcard($_GET['sedcard'], $app['lang']);
         unset($sedcard->ipAddress);
-        $video   = $app->client()->getFreeVideo($_GET['sedcard']);
-        $pics    = $app->client()->getFreePictureGallery($_GET['sedcard'], 'l');
-
+        $video       = $app->client()->getFreeVideo($_GET['sedcard']);
+        if ($sedcard->previewFsk16) {
+            $pics = $app->client()->getFreePictureGallery($_GET['sedcard'], 'l');
+        } else {
+            $pics = $app->client()->getFreePictureGalleryBlurred($_GET['sedcard'], 'l');
+        }
         require __DIR__ . '/views/index.php';
     };
 
