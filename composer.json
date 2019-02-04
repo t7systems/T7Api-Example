@@ -6,6 +6,6 @@
         }
     ],
     "require": {
-        "t7systems/t7lc-api": "~0.0.16"
+        "t7systems/t7lc-api": "~0.0.17"
     }
 }

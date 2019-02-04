@@ -111,7 +111,7 @@ return function(Application $app) {
         }
 
         try {
-            $chatInfo  = $app->client()->getChat($camId, $app['cfg']['seconds'], $nickname, $voyeurMode, $showCam2Cam, $showSendSound, $sendSound, $app['lang']);
+            $chatInfo  = $app->client()->getChat($camId, $app['cfg']['seconds'], $nickname, $voyeurMode, $showCam2Cam, $showSendSound, $sendSound, $app['lang'], 10);
             $chatUrl   = $chatInfo['url'];
             $sessionId = $chatInfo['sessionId'];
 
