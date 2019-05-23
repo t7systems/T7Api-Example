@@ -7,11 +7,11 @@
     <div class="modal-body">
         <p>Please set some options&hellip;</p>
         <div class="form-group">
-            <input class="form-control" type="text" name="nickname" value="<?php echo $nickname ?>" placeholder="Nickname" pattern="[A-Za-z0-9]{3,10}" required="required" />
+            <input class="form-control" type="text" id="nickname" name="nickname" value="<?php echo $nickname ?>" placeholder="Nickname" pattern="[A-Za-z0-9]{3,10}" required="required" />
         </div>
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="voyeurMode" value="1" <?php if($voyeurMode): ?>checked="checked"<?php endif; ?> />
+                <input type="checkbox" id="voyeurMode" name="voyeurMode" value="1" <?php if($voyeurMode): ?>checked="checked"<?php endif; ?> />
                 Enter as voyeur
             </label>
         </div>
@@ -39,3 +39,8 @@
         <button type="submit" class="btn btn-primary">Enter chat now!</button>
     </div>
 </form>
+<script>
+    document.getElementById('voyeurMode').addEventListener('change', function(){
+        document.getElementById('nickname').required = !this.checked;
+    })
+</script>
