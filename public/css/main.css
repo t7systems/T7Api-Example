@@ -36,8 +36,9 @@ body {
 }
 #chatframe {
     border: none;
-    height: 100%;
+    height: calc(100% - 72px);
     width: 100%;
+    float: left;
 }
 video {
     position: absolute;
