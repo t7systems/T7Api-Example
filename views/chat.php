@@ -1,4 +1,4 @@
-<iframe id="chatframe" name="chatframe" src="<?php echo $chatUrl ?>" allowfullscreen></iframe>
+<iframe id="chatframe" name="chatframe" src="<?php echo $chatUrl ?>" allow="camera;microphone;fullscreen"></iframe>
 
 <script>
     //ask server to extend the chat session

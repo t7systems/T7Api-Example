@@ -117,10 +117,12 @@ return function(Application $app) {
 
             $_SESSION['sessionId'] = $sessionId;
 
+            $app['route'] = 'chat';
+
         } catch (\SoapFault $ex) {
             $app['route'] = 'offline';
         }
-        $app['route'] = 'chat';
+
         require __DIR__ . '/views/index.php';
     };
 
