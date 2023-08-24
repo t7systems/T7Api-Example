@@ -9,11 +9,7 @@
     </head>
     <body>
         <div class="container-fluid">
-            <?php if (isset($redirect)): ?>
-                <a target="_top" href="<?php echo $redirect ?>">You will be redirected shortly. If not, click here...</a>
-            <?php else: ?>
-                <a target="_top" href="<?php echo $_SERVER['PHP_SELF'] ?>">You will be redirected shortly. If not, click here...</a>
-            <?php endif; ?>
+            <a target="_top" href="<?php echo $_SERVER['PHP_SELF'] ?>">You will be redirected shortly. If not, click here...</a>
             <?php if (isset($chatStatus)): ?>
                 <table class="table table-striped">
                     <tr>
@@ -46,13 +42,8 @@
         <script>
             //clear timeout to prevent parent window from redirecting elsewhere
             window._T7LC_keepAliveTimeout && clearTimeout(window._T7LC_keepAliveTimeout);
-
-            <?php if (isset($redirect)): //redirect from voyeur to chat ?>
-                window.top.location.href = "<?php echo $redirect ?>";
-            <?php else: ?>
-                //redirect users to overview page or sedcard or...
-                //window.top.location.href = "<?php echo $_SERVER['PHP_SELF'] ?>";
-            <?php endif; ?>
+            //redirect users to overview page or sedcard or...
+            //window.top.location.href = "<?php echo $_SERVER['PHP_SELF'] ?>";
         </script>
     </body>
 </html>

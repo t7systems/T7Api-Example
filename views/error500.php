@@ -75,6 +75,9 @@
 <pre>
 <?php echo $ex->getMessage() ?>
 </pre>
+<pre>
+<?php echo $ex->getTraceAsString() ?>
+</pre>
     </div>
 </body>
 </html>

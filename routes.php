@@ -80,9 +80,13 @@ return function(Application $app) {
 
         //TODO Sanitize somehow!
         $camId = $_SESSION['chat_camid'] = $_GET['chat'];
-        if (isset($_GET['nickname'])) {
+
+        //nickname must not be empty and must not equal 'voyeur'
+        if (isset($_GET['nickname']) && strtolower($_GET['nickname']) != 'voyeur') {
             $nickname      = $_SESSION['nickname']      = $_GET['nickname'];
         } else {
+            //show error message... or just use a default nickname
+            //again: don't use 'voyeur' -> this will break switching from voyeur mode to chat mode!
             $nickname      = $_SESSION['nickname']      = 'Anon';
         }
         if (isset($_GET['voyeurMode'])) {
@@ -111,7 +115,7 @@ return function(Application $app) {
         }
 
         try {
-            $chatInfo  = $app->client()->getChat($camId, $app['cfg']['seconds'], $nickname, $voyeurMode, $showCam2Cam, $showSendSound, $sendSound, $app['lang'], 10);
+            $chatInfo  = $app->client()->getChat($camId, $app['cfg']['seconds'], $nickname, $voyeurMode, $showCam2Cam, $showSendSound, $sendSound, $app['lang']);
             $chatUrl   = $chatInfo['url'];
             $sessionId = $chatInfo['sessionId'];
 
@@ -120,14 +124,21 @@ return function(Application $app) {
             $app['route'] = 'chat';
 
         } catch (\SoapFault $ex) {
-            $app['route'] = 'offline';
+            if (ini_get("display_errors")) {
+              //rethrow while in development mode to show error message
+              throw $ex;
+            } else {
+              //chances are, an error occurred, because show is offline
+              //don't confuse users with too much details
+              $app['route'] = 'offline';
+            }
         }
 
         require __DIR__ . '/views/index.php';
     };
 
     $keepAlive = function() use ($app) {
-        if (isset($_SESSION['sessionId']) && !empty($_SESSION['sessionId'])) {
+        if (!empty($_SESSION['sessionId'])) {
 
             //TODO check if user is still allowed to chat, update DB, ...
             $app->client()->keepAliveChatSession($_SESSION['sessionId'], $app['cfg']['seconds']);
@@ -145,37 +156,12 @@ return function(Application $app) {
 
     $chatExit = function() use ($app) {
 
-        if (isset($_GET['err']) && $_GET['err'] == 'startchat') {
-
-            /**
-             * Switch from voyeur to normal chat.
-             *
-             * In order to do that, we need to start a new chat session.
-             * Take old parameters from session and set voyeurMode to '0'
-             */
-
-            unset($_SESSION['sessionId']);
-            $redirectParams = array(
-                'chat'          => $_SESSION['chat_camid'],
-                'nickname'      => $_SESSION['nickname'],
-                'voyeurMode'    => 0,
-                'showCam2Cam'   => $_SESSION['showcam2cam'],
-                'showSendSound' => $_SESSION['showsendsound'],
-                'sendSound'     => $_SESSION['sendsound'],
-            );
-
-            $redirect = '/?' . http_build_query($redirectParams);
-
-        } else if (isset($_SESSION['sessionId'])) {
+        if (isset($_SESSION['sessionId'])) {
 
             $chatStatus = $app->client()->getChatStatus($_SESSION['sessionId']);
+            $start      = new DateTime();
+            $stop       = new DateTime();
 
-            $chatStatus->active;
-            $chatStatus->startDate;
-            $chatStatus->stopDate;
-
-            $start = new DateTime();
-            $stop  = new DateTime();
             $start->setTimestamp($chatStatus->startDate);
             $stop->setTimestamp($chatStatus->stopDate);
 
